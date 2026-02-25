@@ -10,6 +10,15 @@ The workflow provides insights for targeted game strategies and helps understand
 - Interactive visualizations using KNIME nodes  
 - Workflow fully reproducible in KNIME Analytics Platform  
 
+## Dataset
+- Sample gaming dataset included in the data/ folder for demonstration.
+- Full dataset may be linked externally if too large to include.
+
+## Tools Used
+- KNIME Analytics Platform
+- K-Means Clustering
+- Data Visualization Nodes
+
 ## How to Open
 1. Download and install [KNIME Analytics Platform]( https://hub.knime.com/chalanifernando).  
 2. Clone this repository:  
