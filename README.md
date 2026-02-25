@@ -23,4 +23,4 @@ The workflow provides insights for targeted game strategies and helps understand
 1. Download and install [KNIME Analytics Platform]( https://hub.knime.com/chalanifernando).  
 2. Clone this repository:  
 ```bash
-git clone https://github.com/yourusername/player-segmentation-analysis.git
+git clone [https://github.com/yourusername/player-segmentation-analysis.git](https://github.com/Chalani127/Player-Segmentation-Analysis-KNIME.git)
