@@ -1,26 +1,51 @@
 # Gaming Analytics: Player Segmentation – KNIME
 
 ## Overview
-This KNIME workflow performs clustering analysis on a gaming dataset to segment players based on behavior, game genre preferences, and engagement patterns.  
-The workflow provides insights for targeted game strategies and helps understand player engagement in different game genres.
+This KNIME workflow segments 40,034 players into 3 distinct behavioral clusters — **Minnows, Dolphins, and Whales** — based on playtime, session frequency, engagement level, achievements, and in-game purchase behavior. Built as part of DA3131 - Data Mining coursework, the project translates clustering results into actionable retention and monetization strategies for game developers and marketers.
 
-## Features
-- Player segmentation using K-Means clustering  
-- Behavioral analysis and engagement pattern detection  
-- Interactive visualizations using KNIME nodes  
-- Workflow fully reproducible in KNIME Analytics Platform  
+## Problem Statement
+Segment game players based on behavioral and engagement patterns (playtime, sessions, purchases, achievements, levels) to uncover distinct player types — enabling targeted engagement, personalized experiences, optimized content, and retention strategies.
 
 ## Dataset
-- Sample gaming dataset included in the data/ folder for demonstration.
-- Full dataset may be linked externally if too large to include.
+- **40,034 player records**, 13 features, no missing values, no outliers
+- **Demographics:** Age, Gender, Location
+- **Gaming behavior:** PlayTimeHours, SessionsPerWeek, AvgSessionDurationMinutes
+- **Progress & engagement:** PlayerLevel, AchievementsUnlocked, EngagementLevel
+- **Monetization:** InGamePurchases
+
+## Methodology (KNIME Workflow)
+`EDA → Preprocessing (encoding + filtering + scaling) → K-Means Clustering → Cluster Profiling & Validation`
+
+- **EDA:** Box plots and a correlation matrix to inspect feature distributions and relationships across PlayTimeHours, InGamePurchases, SessionsPerWeek, AvgSessionDuration, PlayerLevel, and AchievementsUnlocked.
+- **Preprocessing:** Rule Engine (grouped players into teens/young-adult/adult age bands), Category-to-Number encoding for categorical variables (e.g., Game Genre, Engagement Level), Column Filter to retain only relevant numerical features, and Z-score Normalization (mean = 0, SD = 1) to ensure fair clustering across variables of different scales.
+- **Model:** K-Means clustering, chosen for being fast and effective on large numeric datasets while grouping players with similar gaming patterns into distinct, interpretable segments.
+- **Why K = 3:** Produces three meaningful, business-actionable segments — a balance between granularity and simplicity for decision-making.
+
+## Cluster Profiles
+
+| Cluster | Player Count | Avg. Playtime | In-Game Purchases | Preferred Genre |
+|---|---|---|---|---|
+| **Dolphins** (Cluster_0) | Medium | High | No | Simulation |
+| **Whales** (Cluster_1) | Low | Medium | Yes | Strategy |
+| **Minnows** (Cluster_2) | High | High | No | Action |
+
+## Recommendations
+- **Whales:** Reward with exclusive strategy content and premium bundles — VIP events, rare items, high-value packages.
+- **Dolphins:** Retain with immersive content and light purchase offers — retention campaigns, promote simulation titles.
+- **Minnows:** Engage with fast, fun gameplay and free rewards — casual action games, short/exciting sessions.
+
+## Features
+- Player segmentation using K-Means clustering
+- Behavioral and engagement pattern detection across 40K+ players
+- Data preprocessing pipeline (encoding, filtering, normalization) built entirely in KNIME
+- Cluster profiling translated into genre- and spend-specific business recommendations
+- Fully reproducible workflow in KNIME Analytics Platform
 
 ## Tools Used
 - KNIME Analytics Platform
 - K-Means Clustering
-- Data Visualization Nodes
+- Data Visualization Nodes (Box Plot, Correlation Matrix)
 
 ## How to Open
-1. Download and install [KNIME Analytics Platform]( https://hub.knime.com/chalanifernando).  
-2. Clone this repository:  
-```bash
-git clone [https://github.com/yourusername/player-segmentation-analysis.git](https://github.com/Chalani127/Player-Segmentation-Analysis-KNIME.git)
+1. Download and install [KNIME Analytics Platform](https://hub.knime.com/chalanifernando).
+2. Clone this repository:
