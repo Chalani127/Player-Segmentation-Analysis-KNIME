@@ -45,7 +45,3 @@ Segment game players based on behavioral and engagement patterns (playtime, sess
 - KNIME Analytics Platform
 - K-Means Clustering
 - Data Visualization Nodes (Box Plot, Correlation Matrix)
-
-## How to Open
-1. Download and install [KNIME Analytics Platform](https://hub.knime.com/chalanifernando).
-2. Clone this repository:
